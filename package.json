@@ -32,6 +32,10 @@
   "bili": {
     "format": [
       "cjs",
+      "umd",
+      "umd"
+    ],
+    "compress": [
       "umd"
     ]
   },
