@@ -14,7 +14,7 @@ CDN: [UNPKG](https://unpkg.com/v-copy/) | [jsDelivr](https://cdn.jsdelivr.net/np
 
 First register the directive globally:
 
-```vue
+```js
 import Copy from 'v-copy'
 
 Vue.use(Copy)
