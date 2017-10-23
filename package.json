@@ -1,0 +1,56 @@
+{
+  "name": "v-copy",
+  "version": "0.0.0",
+  "description": "Vue directive to copy to clipboard.",
+  "repository": {
+    "url": "egoist/v-copy",
+    "type": "git"
+  },
+  "main": "dist/v-copy.common.js",
+  "unpkg": "dist/v-copy.js",
+  "cdn": "dist/v-copy.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "prepublishOnly": "npm test && npm run build",
+    "test": "xo",
+    "build": "bili",
+    "example": "poi",
+    "build:example": "poi build"
+  },
+  "author": {
+    "name": "EGOIST",
+    "email": "0x142857@gmail.com"
+  },
+  "license": "MIT",
+  "poi": {
+    "entry": "example/index.js",
+    "dist": "example/dist",
+    "homepage": "./"
+  },
+  "bili": {
+    "format": [
+      "cjs",
+      "umd"
+    ]
+  },
+  "xo": {
+    "extends": "rem/prettier",
+    "ignores": [
+      "example/**"
+    ],
+    "envs": [
+      "browser"
+    ]
+  },
+  "devDependencies": {
+    "bili": "^0.18.2",
+    "eslint-config-rem": "^3.2.0",
+    "poi": "^9.3.10",
+    "xo": "^0.18.2"
+  },
+  "dependencies": {
+    "modern-copy": "^1.0.3"
+  }
+}
