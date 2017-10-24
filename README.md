@@ -40,6 +40,27 @@ Then use it in template:
 </template>
 ```
 
+**`v-copy:callback`**: executed after text is copied to clipboard.
+
+```vue
+<template>
+  <button 
+    v-copy="`some text`"
+    v-copy:callback="handleCopied">Copy!
+  </button>
+</template>
+
+<script>
+export default {
+  methods: {
+    handleCopied(text) {
+      alert(`Copied: ${text}`)
+    }
+  }
+}
+</script>
+```
+
 ## Browser support
 
 This supports what [copy-text-to-clipboard](https://github.com/sindresorhus/copy-text-to-clipboard) supports, namely ever-green browsers and IE9+. (Not all are carefully tested though :P)
