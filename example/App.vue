@@ -1,7 +1,11 @@
 <template>
   <div id="app">
     <textarea v-model="text"></textarea>
-    <button v-copy="text" v-copy:callback="handleClick">Copy</button>
+    <button
+      v-copy="text"
+      v-copy:success="handleCopySuccess"
+      v-copy:failure="handleCopyFailure"
+    >Copy</button>
   </div>
 </template>
 
@@ -14,8 +18,12 @@ export default {
   },
 
   methods: {
-    handleClick(text) {
-      alert(`Copied ${text}`)
+    handleCopySuccess(text) {
+      alert(`Copied: ${text}`)
+    },
+
+    handleCopyFailure(text) {
+      alert(`Not copied: ${text}`)
     }
   }
 }

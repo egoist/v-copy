@@ -40,24 +40,30 @@ Then use it in template:
 </template>
 ```
 
-**`v-copy:callback`**: executed after text is copied to clipboard.
+**`v-copy:success`**: executed after text is copied to clipboard.
+
+**`v-copy:failure`**: executed after text could not be copied to clipboard.
 
 ```vue
 <template>
-  <button 
+  <button
     v-copy="`some text`"
-    v-copy:callback="handleCopied">Copy!
+    v-copy:success="handleCopySuccess"
+    v-copy:failure="handleCopyFailure">Copy!
   </button>
 </template>
 
 <script>
 export default {
   methods: {
-    handleCopied(text) {
-      alert(`Copied: ${text}`)
-    }
-  }
-}
+    handleCopySuccess(text) {
+      alert(`Copied: ${text}`);
+    },
+    handleCopyFailure(text) {
+      alert(`Not copied: ${text}`);
+    },
+  },
+};
 </script>
 ```
 

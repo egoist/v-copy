@@ -2,14 +2,19 @@ import mcopy from 'modern-copy'
 
 export const copy = {
   bind(el, { value, arg }) {
-    if (arg === 'callback') {
-      el.$copyCallback = value
+    if (arg === 'success') {
+      el.$copySuccess = value
+    } else if (arg === 'failure') {
+      el.$copyFailure = value
     } else {
       el.$copyValue = value
       const handler = () => {
-        mcopy(el.$copyValue)
-        if (el.$copyCallback) {
-          el.$copyCallback(el.$copyValue)
+        const isCopied = mcopy(el.$copyValue)
+        if (isCopied && el.$copySuccess) {
+          el.$copySuccess(el.$copyValue)
+        }
+        if (!isCopied && el.$copyFailure) {
+          el.$copyFailure(el.$copyValue)
         }
       }
       el.addEventListener('click', handler)
@@ -22,8 +27,10 @@ export const copy = {
   },
 
   componentUpdated(el, { value, arg }) {
-    if (arg === 'callback') {
-      el.$copyCallback = value
+    if (arg === 'success') {
+      el.$copySuccess = value
+    } else if (arg === 'failure') {
+      el.$copyFailure = value
     } else {
       el.$copyValue = value
     }
